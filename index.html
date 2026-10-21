@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaultMetrics.io - Minimalist Bank Investment Analysis</title>
+    <!-- Tailwind CSS untuk UI yang sleek & modern -->
+    <script src="https://tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#121212',
+                        cardBg: '#1E1E1E',
+                        neonGreen: '#00E676',
+                        neonRed: '#FF5252',
+                        textMuted: '#A0A0A0'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Chart.js untuk grafik finansial minimalis -->
+    <script src="https://jsdelivr.net"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .custom-blur {
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header / Navigasi Minimalis -->
+    <header class="border-b border-zinc-800 sticky top-0 bg-darkBg/80 custom-blur z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-neonGreen animate-pulse"></div>
+                <span class="font-bold text-lg tracking-wider">VaultMetrics<span class="text-neonGreen">.io</span></span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="#dashboard" class="hover:text-neonGreen transition-colors">Dashboard</a>
+                <a href="#analysis" class="hover:text-neonGreen transition-colors">Analisis Harian</a>
+                <a href="#recommendations" class="hover:text-neonGreen transition-colors">Rekomendasi</a>
+                <a href="#broker" class="text-zinc-400 hover:text-white transition-colors border border-zinc-700 px-3 py-1 rounded-full text-xs">OJK & SEC Guarded</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="max-w-6xl w-full mx-auto px-6 py-12 flex-grow space-y-16">
+        
+        <!-- Hero Section -->
+        <section class="space-y-4 max-w-2xl">
+            <div class="inline-block bg-zinc-800/60 border border-zinc-700 text-xs px-3 py-1 rounded-full text-neonGreen font-mono">
+                // UPDATED: LIVE DATA DI-REFRESH HARIAN
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+                Analisis Investasi Bank Tanpa <span class="text-zinc-500">Omong Kosong.</span>
+            </h1>
+            <p class="text-textMuted text-base md:text-lg font-light leading-relaxed">
+                Platform intelijen finansial untuk Gen-Z dan Milenial. Dapatkan skor profitabilitas perbankan nasional & global secara instan berdasarkan matriks kuantitatif murni.
+            </p>
+        </section>
+
+        <!-- Live Dashboard Segment -->
+        <section id="dashboard" class="space-y-6">
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+                <h2 class="text-xl font-semibold tracking-tight">Pasar Perbankan Terkini</h2>
+                <span class="text-xs text-textMuted font-mono">Real-time Performance Index</span>
+            </div>
+            
+            <!-- Minimalist Interactive Chart Layout -->
+            <div class="bg-cardBg border border-zinc-800 rounded-2xl p-6 shadow-2xl">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <h3 class="text-sm font-medium text-textMuted">Tren Saham Bank Utama (YTD)</h3>
+                        <p class="text-2xl font-bold text-white mt-1">BBCA vs BMRI vs JPM</p>
+                    </div>
+                    <div class="flex gap-4 text-xs font-mono">
+                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-neonGreen inline-block"></span> BBCA</span>
+                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span> BMRI</span>
+                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block"></span> JPM</span>
+                    </div>
+                </div>
+                <div class="h-64 w-full">
+                    <canvas id="financialChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Quantitative Analysis -->
+        <section id="analysis" class="space-y-6">
+            <div class="border-b border-zinc-800 pb-3">
+                <h2 class="text-xl font-semibold tracking-tight">Sinyal Profitabilitas & Risiko Harian</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: BBCA -->
+                <div class="bg-cardBg border border-zinc-800 rounded-xl p-6 space-y-4 hover:border-zinc-700 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold tracking-wide">BBCA (Nasional)</span>
+                        <span class="px-2 py-0.5 rounded bg-neonGreen/10 text-neonGreen text-xs font-mono font-bold">PROFITABLE</span>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-xs text-textMuted flex justify-between"><span>CASA Ratio:</span> <span class="text-white font-mono font-medium">84.5%</span></div>
+                        <div class="text-xs text-textMuted flex justify-between"><span>NPL Net:</span> <span class="text-white font-mono font-medium">0.6%</span></div>
+                        <div class="text-xs text-textMuted flex justify-between"><span>Probability Score:</span> <span class="text-neonGreen font-mono font-bold">94%</span></div>
+                    </div>
+                    <p class="text-xs text-textMuted font-light leading-relaxed">
+                        Likuiditas sangat melimpah didukung oleh dana murah (CASA) yang kuat. Risiko kredit macet hampir nol. Sangat aman dan menguntungkan untuk portofolio jangka panjang.
+                    </p>
+                </div>
+
+                <!-- Card 2: BMRI -->
+                <div class="bg-cardBg border border-zinc-800 rounded-xl p-6 space-y-4 hover:border-zinc-700 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold tracking-wide">BMRI (Nasional)</span>
+                        <span class="px-2 py-0.5 rounded bg-neonGreen/10 text-neonGreen text-xs font-mono font-bold">PROFITABLE</span>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-xs text-textMuted flex justify-between"><span>CASA Ratio:</span> <span class="text-white font-mono font-medium">78.2%</span></div>
+                        <div class="text-xs text-textMuted flex justify-between"><span>NPL Net:</span> <span class="text-white font-mono font-medium">0.9%</span></div>
+                        <div class="text-xs text-textMuted flex justify-between"><span>Probability Score:</span> <span class="text-neonGreen font-mono font-bold">88%</span></div>
+                    </div>
+                    <p class="text-xs text-textMuted font-light leading-relaxed">
+                        Pertumbuhan kredit korporasi dan digitalisasi melaju pesat, menghasilkan lonjakan laba bersih tahunan yang impresif serta efisiensi biaya operasional yang konsisten.
+                    </p>
+                </div>
+
+                <!-- Card 3: JPM -->
+                <div class="bg-cardBg border border-zinc-800 rounded-xl p-6 space-y-4 hover:border-zinc-700 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold tracking-wide">JPM (Global/US)</span>
+                        <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-500 text-xs font-mono font-bold">HOLD / WATCH</span>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-xs text-textMuted flex justify-between"><span>Net Interest Margin:</span> <span class="text-white font-mono font-medium">2.1%</span></div>
+                        <div class="text-xs text-textMuted flex justify-between"><span>CET1 Ratio:</span> <span class="text-white font-mono font-medium">15.0%</span></div>
+                        <div class="text-xs text-textMuted flex justify-between"><span>Probability Score:</span> <span class="text-amber-500 font-mono font-bold">65%</span></div>
+                    </div>
+                    <p class="text-xs text-textMuted font-light leading-relaxed">
+                        Meskipun neraca keuangan raksasa global ini kokoh, volatilitas kebijakan suku bunga bank sentral global membuat margin keuntungan berfluktuasi cukup ketat.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gateway Routes (Trusted Platforms) -->
+        <section id="recommendations" class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 space-y-6 text-center max-w-3xl mx-auto">
+            <div class="space-y-2">
+                <h2 class="text-2xl font-bold tracking-tight">Eksekusi Investasi Secara Aman</h2>
+                <p class="text-textMuted text-sm max-w-lg mx-auto font-light">
